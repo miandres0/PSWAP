@@ -5,7 +5,8 @@ SRCS = main.c \
 	ft_strlen.c \
 	ft_atoi.c \
 	ft_strjoin.c \
-	ft_split.c
+	ft_split.c \
+	check_str.c
 
 OBJS = $(SRCS:%.c=%.o)
 

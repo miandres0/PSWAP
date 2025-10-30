@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushlib.h                                          :+:      :+:    :+:   */
+/*   check_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandres <miandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/21 13:36:47 by miandres          #+#    #+#             */
-/*   Updated: 2025/10/30 17:38:50 by miandres         ###   ########.fr       */
+/*   Created: 2025/10/30 17:38:18 by miandres          #+#    #+#             */
+/*   Updated: 2025/10/30 17:47:28 by miandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHLIB_H
-# define PUSHLIB_H
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-
-typedef struct s_list
+int check_str(char *s)
 {
-	int				num;
-	struct s_list	*next;
-}					t_list;
-
-size_t	ft_strlen(const char *s);
-int		ft_atoi(const char *str);
-char	*ft_strjoin(const char *s1, const char *s2);
-char	**ft_split(const char *s, char c);
-int		check_str(char *s);
-
-#endif
+	int	i;
+	int	r;
+	
+	r = 1;
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != ' ' && !('0' < s[i] && s[i] < '9'))
+		{
+			if (s[i] == '+' || s[i] == '-')
+			{
+				if ((i != 0 && s[(i - 1)]== ' ') \
+					||  !('0' < s[i + 1] && s[i + 1] < '9'))
+				{
+					r = 0;
+					break;
+				}
+			}
+		}
+		i++;
+	}
+	return (r);
+}
