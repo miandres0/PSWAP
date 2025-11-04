@@ -6,7 +6,7 @@
 /*   By: miandres <miandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:50:21 by miandres          #+#    #+#             */
-/*   Updated: 2025/11/04 13:38:37 by miandres         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:22:18 by miandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,8 @@ int	main(int argc, char **argv)
 	char	*temp;
 	char	**numbers;
 	long int	num;
+	t_list		*node;
+	t_list		**lst;
 
 	i = 1;
 	while (i < argc)
@@ -168,13 +170,20 @@ int	main(int argc, char **argv)
 		num = ft_atol(numbers[j]);
 		if (-2147483648 <= num && num <= 2147483647)
 		{
-			// criar novo nó 
+			node = ft_lstnew((int)num);
+			//void	ft_lstadd_front(t_list **lst, t_list *new)
+			ft_lstadd_front(lst, node);
 		}
 		else 
 			// free em str, numbers (como), todos nós
+			// print erro .. ou return 1;
 		j++;
 		printf("\n%zu\n", numbers[j]);
-	}
-	
+	} // j tamanho da pilha
+	// dar free no array
+	// ATE AQUI, TENHO UMA LINTA COM INTEIROS
+	// Testar duplicatas funçao teste_double
+	// AQUI: PERCORRER A LISTA E MUDAR OS INTS (FUNÇAO change_int)
+	// 
 	
 }

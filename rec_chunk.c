@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   rec_chunk.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandres <miandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 15:56:22 by miandres          #+#    #+#             */
-/*   Updated: 2025/11/04 15:13:08 by miandres         ###   ########.fr       */
+/*   Created: 2025/11/04 15:25:28 by miandres          #+#    #+#             */
+/*   Updated: 2025/11/04 15:40:00 by miandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushlib.h"
 
-t_list	*ft_lstnew (int content)
+void	rec_chunk(int size, t_list *lst)
 {
-	t_list	*node;
-
-	node = (t_list *)malloc(sizeof(t_list));
-	if (!node)
-		return ((t_list *)0);
-	node->num = content;
-	node->next = (void *)0;
-	return (node);
+	int	i = 0;
+	while (size > 3)
+	{
+		size /= 3;
+		i++;
+	}
+	
 }
+
