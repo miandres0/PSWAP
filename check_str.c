@@ -6,34 +6,33 @@
 /*   By: miandres <miandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 17:38:18 by miandres          #+#    #+#             */
-/*   Updated: 2025/10/30 17:47:28 by miandres         ###   ########.fr       */
+/*   Updated: 2025/11/04 13:04:42 by miandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int check_str(char *s)
 {
 	int	i;
-	int	r;
-	
-	r = 1;
+
 	if (!s)
 		return (0);
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] != ' ' && !('0' < s[i] && s[i] < '9'))
+		if (!(s[i] == ' ' || ('0' <= s[i] && s[i] <= '9')))
 		{
-			if (s[i] == '+' || s[i] == '-')
+			if (!(s[i] == '+' || s[i] == '-'))
+				return (0);
+			else
 			{
-				if ((i != 0 && s[(i - 1)]== ' ') \
-					||  !('0' < s[i + 1] && s[i + 1] < '9'))
-				{
-					r = 0;
-					break;
-				}
+				i++;
+				if (!('0' <= s[i] && s[i] <= '9'))
+					return (0);
 			}
 		}
+		else
+			return (0);
 		i++;
 	}
-	return (r);
+	return (1);
 }

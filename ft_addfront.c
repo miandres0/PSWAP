@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_addfront.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandres <miandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/27 11:41:56 by miandres          #+#    #+#             */
-/*   Updated: 2025/11/04 13:10:52 by miandres         ###   ########.fr       */
+/*   Created: 2025/11/03 15:58:38 by miandres          #+#    #+#             */
+/*   Updated: 2025/11/03 15:59:17 by miandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushlib.h"
 
-long int	ft_atol(const char *str)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	i;
-	long int	sign;
-	long int	number;
-
-	number = 0;
-	sign = 1;
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		sign = 44 - str[i];
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		number = number * 10 + (str[i] - '0');
-		i++;
-	}
-	return (sign * number);
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

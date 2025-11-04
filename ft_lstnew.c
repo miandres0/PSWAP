@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandres <miandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/27 11:41:56 by miandres          #+#    #+#             */
-/*   Updated: 2025/11/04 13:10:52 by miandres         ###   ########.fr       */
+/*   Created: 2025/11/03 15:56:22 by miandres          #+#    #+#             */
+/*   Updated: 2025/11/03 15:56:53 by miandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushlib.h"
 
-long int	ft_atol(const char *str)
+t_list	*ft_lstnew(void *content)
 {
-	int	i;
-	long int	sign;
-	long int	number;
+	t_list	*node;
 
-	number = 0;
-	sign = 1;
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		sign = 44 - str[i];
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		number = number * 10 + (str[i] - '0');
-		i++;
-	}
-	return (sign * number);
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return ((t_list *)0);
+	node->num = content;
+	node->next = (void *)0;
+	return (node);
 }

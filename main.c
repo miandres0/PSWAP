@@ -6,7 +6,7 @@
 /*   By: miandres <miandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:50:21 by miandres          #+#    #+#             */
-/*   Updated: 2025/10/30 16:05:49 by miandres         ###   ########.fr       */
+/*   Updated: 2025/11/04 13:38:37 by miandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,8 @@ int	main(int argc, char **argv)
 	int		j;
 	char	*str;
 	char	*temp;
+	char	**numbers;
+	long int	num;
 
 	i = 1;
 	while (i < argc)
@@ -153,11 +155,26 @@ int	main(int argc, char **argv)
 			temp = ft_strjoin(str, argv[i]);
 			free(str);
 			str = temp;
-		}	
+		}
 		i++;
 	}
-	printf("%s", str);
-
+	printf("%s, %zu", str, atol(str));
+	// if (check_str(str)) dar free em str
+	numbers = ft_split(str, ' ');
+	// if !numbers return 1
 	j = 0;
+	while (numbers[j])
+	{
+		num = ft_atol(numbers[j]);
+		if (-2147483648 <= num && num <= 2147483647)
+		{
+			// criar novo nó 
+		}
+		else 
+			// free em str, numbers (como), todos nós
+		j++;
+		printf("\n%zu\n", numbers[j]);
+	}
+	
 	
 }
